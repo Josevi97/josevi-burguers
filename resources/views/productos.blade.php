@@ -31,10 +31,13 @@
         <br>
         <br>
     </div>
-    <div class="position-fixed bottom-0 bg-white w-100">
-        <div class="d-flex container py-4 justify-content-center">
-            <a class="btn btn-outline-primary btn-lg" href="/carrito">Ver carrito</a>
+    @if($total > 0)
+        <div class="position-fixed bottom-0 bg-white w-100">
+            <div class="d-flex position-relative container py-4 justify-content-center">
+                <a class="btn btn-outline-primary btn-lg" href="/carrito">Ver carrito</a>
+                <h5 class="position-absolute end-0 top-50 translate-middle-y"><strong>Total: </strong> <span>{{$total}} €</span></h5>
+            </div>
         </div>
-    </div>
+    @endif
 </body>
 </html>

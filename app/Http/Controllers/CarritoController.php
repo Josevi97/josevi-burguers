@@ -9,11 +9,16 @@ class CarritoController extends Controller
 {
     public function index() {
         $carritos = Carrito::all();
+        $total = 0;
 
         if ($carritos->count() == 0) 
             return redirect()->to('/');
 
-        return view('carrito', compact('carritos'));
+        foreach($carritos as $carrito) {
+            $total += $carrito->producto->precio;
+        }
+
+        return view('carrito', compact('carritos', 'total'));
     }
 
     public function add_producto($id) {
@@ -39,7 +44,12 @@ class CarritoController extends Controller
 
     public function comprar_productos() {
         $carritos = Carrito::all();
+        $total = 0;
 
-        return view('compra', compact('carritos'));
+        foreach($carritos as $carrito) {
+            $total += $carrito->producto->precio;
+        }
+
+        return view('compra', compact('carritos', 'total'));
     }
 }

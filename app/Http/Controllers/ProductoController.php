@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Carrito;
 use Illuminate\Http\Request;
 
 use App\Models\Producto;
@@ -10,7 +11,13 @@ class ProductoController extends Controller
 {
     public function index() {
         $productos = Producto::all();
-        return view('productos', compact('productos'));
+        $total = 0;
+
+        foreach(Carrito::all() as $carrito) {
+            $total += $carrito->producto->precio;
+        }
+
+        return view('productos', compact('productos', 'total'));
     }
 
     public function producto($id) {

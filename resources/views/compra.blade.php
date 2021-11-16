@@ -23,6 +23,12 @@
                         </tr>
                     @endforeach
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Total: </th>
+                        <td>{{$total}} €</td>
+                    </tr>
+                </tfoot>
             </table>
             <div class="d-flex flex-column flex-md-row justify-content-center">
                 <a class="btn btn-outline-secondary me-md-2 order-2 order-md-1" href="{{url('/carrito')}}">Volver al carrito</a>

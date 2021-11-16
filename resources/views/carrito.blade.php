@@ -33,6 +33,12 @@
                         </tr>
                     @endforeach
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Total: </th>
+                        <td>{{$total}} €</td>
+                    </tr>
+                </tfoot>
             </table>
             <div>
                 <div class="d-flex flex-column flex-md-row">
